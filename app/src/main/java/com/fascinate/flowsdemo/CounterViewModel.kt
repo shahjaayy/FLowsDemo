@@ -3,9 +3,12 @@ package com.fascinate.flowsdemo
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 
 class CounterViewModel : ViewModel() {
+
 
     val startCounter = flow<Int> {
         val startingValue = 100
@@ -15,7 +18,7 @@ class CounterViewModel : ViewModel() {
 
         while(updatedValue > 0)
         {
-            delay(500L)
+            delay(50L)
             updatedValue--
             emit(updatedValue)
         }
